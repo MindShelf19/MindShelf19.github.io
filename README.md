@@ -1,71 +1,63 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>MindShelf | Build Your Mind</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MindShelf | Build Your Mind</title>
 
 <style>
-body {
+* {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #f3f5f9;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* HERO SECTION */
-.hero {
-    position: relative;
-    height: 85vh;
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6f9;
+}
+
+/* NAVBAR */
+nav {
+    background: #111;
     color: white;
+    padding: 15px 40px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h2 {
+    font-size: 24px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* HERO */
+.hero {
+    height: 90vh;
+    background: url('https://images.unsplash.com/photo-1512820790803-83ca734da794') center/cover no-repeat;
+    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    overflow: hidden;
+    color: white;
+    position: relative;
 }
 
-.hero h1 {
-    font-size: 50px;
-    margin-bottom: 10px;
-    z-index: 2;
-}
-
-.hero p {
-    font-size: 20px;
-    width: 70%;
-    z-index: 2;
-}
-
-/* SLIDER BACKGROUND */
-.slides {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
-.slides img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    animation: fade 15s infinite;
-    opacity: 0;
-}
-
-.slides img:nth-child(1) { animation-delay: 0s; }
-.slides img:nth-child(2) { animation-delay: 5s; }
-.slides img:nth-child(3) { animation-delay: 10s; }
-
-@keyframes fade {
-    0% {opacity: 0;}
-    10% {opacity: 1;}
-    30% {opacity: 1;}
-    40% {opacity: 0;}
-    100% {opacity: 0;}
-}
-
-/* Overlay */
 .hero::after {
     content: "";
     position: absolute;
@@ -74,21 +66,57 @@ body {
     background: rgba(0,0,0,0.6);
     top: 0;
     left: 0;
-    z-index: 1;
 }
 
-/* CATEGORY SECTION */
-.category-title {
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+}
+
+.hero h1 {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.btn-primary {
+    background: #ff9900;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    border-radius: 6px;
+}
+
+/* ABOUT SECTION */
+.about {
+    padding: 60px 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+}
+
+.about h2 {
+    margin-bottom: 15px;
+}
+
+/* BOOK SECTION */
+.section-title {
     text-align: center;
     margin-top: 50px;
     font-size: 28px;
 }
 
-.products {
+.books {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 20px;
+    padding: 30px;
 }
 
 .card {
@@ -96,10 +124,9 @@ body {
     width: 260px;
     margin: 15px;
     border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
     overflow: hidden;
-    text-align: center;
-    transition: transform 0.3s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    transition: 0.3s;
 }
 
 .card:hover {
@@ -112,96 +139,83 @@ body {
     object-fit: cover;
 }
 
-.card h3 {
-    padding: 10px 10px 0 10px;
+.card-content {
+    padding: 15px;
+    text-align: center;
 }
 
-.card p {
-    padding: 0 15px;
+.card-content h3 {
+    margin-bottom: 10px;
+}
+
+.card-content p {
     font-size: 14px;
-}
-
-.btn {
-    display: inline-block;
-    margin: 15px;
-    padding: 10px 15px;
-    background: #ff9900;
-    color: black;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 footer {
     background: #111;
     color: white;
     text-align: center;
-    padding: 20px;
-    margin-top: 50px;
+    padding: 25px;
+    margin-top: 60px;
+    font-size: 14px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO SECTION WITH SLIDES -->
-<section class="hero">
-    <div class="slides">
-        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794">
-        <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d">
-        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66">
-    </div>
+<nav>
+    <h2>MindShelf</h2>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Finance</a></li>
+        <li><a href="#">Motivation</a></li>
+        <li><a href="#">Mystery</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
 
-    <h1>MindShelf</h1>
-    <p>"A reader lives a thousand lives before he dies. The man who never reads lives only one."  
-    <br><br>Build your mindset. Grow your knowledge. Transform your life.</p>
+<section class="hero">
+    <div class="hero-content">
+        <h1>Build Your Mind. One Book at a Time.</h1>
+        <p>Discover powerful books on finance, growth, productivity and mindset transformation.</p>
+        <a href="#" class="btn-primary">Explore Books</a>
+    </div>
 </section>
 
+<section class="about">
+    <h2>About MindShelf</h2>
+    <p>MindShelf curates high-impact books that improve financial intelligence, productivity, mindset and success thinking. Our mission is simple — help you grow smarter through reading.</p>
+</section>
 
-<h2 class="category-title">💰 Finance Books</h2>
+<h2 class="section-title">💰 Finance Picks</h2>
 
-<section class="products">
+<section class="books">
 
 <div class="card">
 <img src="https://m.media-amazon.com/images/I/81bsw6fnUiL.jpg">
+<div class="card-content">
 <h3>Rich Dad Poor Dad</h3>
-<p>Master financial mindset and wealth principles.</p>
-<a href="YOUR_AFFILIATE_LINK" class="btn" target="_blank">View on Amazon</a>
+<p>Essential lessons for financial independence.</p>
+<a href="YOUR_AFFILIATE_LINK" class="btn-primary" target="_blank">View</a>
+</div>
 </div>
 
 <div class="card">
 <img src="https://m.media-amazon.com/images/I/71g2ednj0JL.jpg">
+<div class="card-content">
 <h3>The Psychology of Money</h3>
-<p>Understand how behavior influences money success.</p>
-<a href="YOUR_AFFILIATE_LINK" class="btn" target="_blank">View on Amazon</a>
+<p>Understand money behaviour deeply.</p>
+<a href="YOUR_AFFILIATE_LINK" class="btn-primary" target="_blank">View</a>
+</div>
 </div>
 
 </section>
-
-
-<h2 class="category-title">🔥 Motivational Books</h2>
-
-<section class="products">
-
-<div class="card">
-<img src="https://m.media-amazon.com/images/I/81wgcld4wxL.jpg">
-<h3>Atomic Habits</h3>
-<p>Build powerful habits and transform your life.</p>
-<a href="YOUR_AFFILIATE_LINK" class="btn" target="_blank">View on Amazon</a>
-</div>
-
-<div class="card">
-<img src="https://m.media-amazon.com/images/I/71aFt4+OTOL.jpg">
-<h3>Think and Grow Rich</h3>
-<p>Timeless principles for success and achievement.</p>
-<a href="YOUR_AFFILIATE_LINK" class="btn" target="_blank">View on Amazon</a>
-</div>
-
-</section>
-
 
 <footer>
-<p>Disclosure: As an Amazon Associate, I earn from qualifying purchases.</p>
+<p>© 2026 MindShelf | Disclosure: As an Amazon Associate, I earn from qualifying purchases.</p>
 </footer>
 
 </body>
